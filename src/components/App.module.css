@@ -1,0 +1,29 @@
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 25px;
+  background-color: #dbdce8;
+}
+
+.heading {
+  font-family: 'Roboto', sans-serif;
+  font-size: 40px;
+  color: var(--primary-text-color);
+}
+
+.phonebook {
+  margin-left: auto;
+  margin-right: auto;
+  /* border: 1px solid purple; */
+  max-width: 850px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+  border-radius: 6px;
+}
+
+.filterContainer {
+}
