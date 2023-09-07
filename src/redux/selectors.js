@@ -16,13 +16,6 @@ export const selectError = state => state.contacts.error;
 //     return filteredContacts;
 // };
 
-export const selectFilteredContacts = createSelector(
-    [selectFilterList, selectContacts],
-    (filterList, contacts) => {
-        return contacts.filter(contact => contact.name.toLowerCase().includes(filterList.toLowerCase()));
-    }
-);
-
 // export const selectFilteredContacts = state => {
 //     const contacts = selectContacts(state);
 //     const filterList = selectFilterList(state);
@@ -30,3 +23,21 @@ export const selectFilteredContacts = createSelector(
 //     return contacts.filter(contact => contact.name.toLowerCase().includes(filterList.toLowerCase()))
 
 // }
+
+
+export const selectFilteredContacts = createSelector(
+    [selectFilterList, selectContacts],
+    (filterList, contacts) => {
+        return contacts.filter(contact => contact.name.toLowerCase().includes(filterList.toLowerCase()));
+    }
+);
+
+
+
+// -------------Auth Selectors------------------
+
+export const selectUserAuthentication = state => state.auth.authenticated;
+export const selectUserData = state => state.auth.userData;
+export const selectUserIsLoading = state => state.auth.isLoading;
+export const selectUserError = state => state.auth.error;
+export const selectUserToken = state => state.auth.token;
