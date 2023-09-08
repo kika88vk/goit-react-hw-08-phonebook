@@ -36,7 +36,7 @@ export const selectFilteredContacts = createSelector(
 
 // -------------Auth Selectors------------------
 
-export const selectUserAuthentication = state => state.auth.authenticated;
+export const selectUserAuthenticated = state => state.auth.authenticated;
 export const selectUserData = state => state.auth.userData;
 export const selectUserIsLoading = state => state.auth.isLoading;
 export const selectUserError = state => state.auth.error;

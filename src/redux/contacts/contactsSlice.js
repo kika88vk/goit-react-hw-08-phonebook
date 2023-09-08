@@ -2,58 +2,53 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { fetchContacts, fetchDeleteContact, fetchAddContact } from './operations';
 
+const initialState = {
+    contacts: [],
+    isLoading: false,
+    error: null,
+}
+
 const contactsSlice = createSlice({
     name: 'contacts',
-    initialState: {
-        contacts: [
-
-        ],
-        isLoading: false,
-        error: null,
-    },
-    reducers: {
-
-    },
+    initialState,
+    reducers: {},
     extraReducers: builder => {
         builder
-            .addCase(fetchContacts.pending, (state) => {
-                state.isLoading = true;
-            })
+            // ------------Fetch contacts-------------------
             .addCase(fetchContacts.fulfilled, (state, action) => {
                 state.isLoading = false;
                 state.contacts = action.payload;
                 state.error = null;
             })
-            .addCase(fetchContacts.rejected, (state, action) => {
-                state.isLoading = false;
-                state.error = action.payload;
-            })
-            .addCase(fetchDeleteContact.pending, (state) => {
-                state.isLoading = true;
-            })
+            //    ----------Delete contact------------
+
             .addCase(fetchDeleteContact.fulfilled, (state, action) => {
                 state.isLoading = false;
-                state.contacts = state.contacts = state.contacts.filter(contact => contact.id !== action.payload.id);
+                state.contacts = state.contacts.filter(contact => contact.id !== action.payload.id);
                 state.error = null;
             })
-            .addCase(fetchDeleteContact.rejected, (state, action) => {
-                state.isLoading = false;
-                state.error = action.payload;
-            })
-            .addCase(fetchAddContact.pending, (state) => {
-                state.isLoading = true;
-            })
+            //    -------------Add contact----------------
+
             .addCase(fetchAddContact.fulfilled, (state, action) => {
                 state.isLoading = false;
-                // state.contacts = state.contacts = state.contacts.unshift(action.payload);
-                // state.contacts = [...state.contacts, action.payload];
                 state.contacts.unshift(action.payload);
                 state.error = null;
             })
-            .addCase(fetchAddContact.rejected, (state, action) => {
-                state.isLoading = false;
-                state.error = action.payload;
-            })
+
+            .addMatcher(
+                action => action.type.endsWith('/pending'),
+                state => {
+                    state.isLoading = true;
+                    state.error = null;
+                }
+            )
+            .addMatcher(
+                action => action.type.endsWith('/rejected'),
+                (state, action) => {
+                    state.isLoading = false;
+                    state.error = action.payload;
+                }
+            )
 
     }
 });

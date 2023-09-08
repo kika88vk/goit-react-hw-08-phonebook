@@ -38,3 +38,10 @@ html {
   --hover-color: #646dccc1;
   --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+main {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 25px;
+  background-color: #dbdce8;
+}

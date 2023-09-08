@@ -1,5 +1,7 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import iziToast from "izitoast";
+import "/node_modules/izitoast/dist/css/iziToast.css";
 
 export const instance = axios.create({
     baseURL: 'https://connections-api.herokuapp.com/',
@@ -20,8 +22,14 @@ export const registerUser = createAsyncThunk('auth/registerUser',
             const { data } = await instance.post(`users/signup`, dataUser);
             token.set(data.token);
 
+
+
             return data;
         } catch (error) {
+            iziToast.error({
+                title: 'Error',
+                message: `Oops! Something was wrog.... ${error.message}`,
+            });
             return thunkApi.rejectWithValue(error.message);
         }
     });
@@ -33,6 +41,10 @@ export const loginUser = createAsyncThunk('auth/lginUser',
             token.set(data.token);
             return data;
         } catch (error) {
+            iziToast.error({
+                title: 'Error',
+                message: `Oops! Something was wrog.... ${error.message}`,
+            });
             return thunkApi.rejectWithValue(error.message);
         }
     });
@@ -44,6 +56,10 @@ export const logOutUser = createAsyncThunk('auth/logOutUser',
             token.clear();
             return;
         } catch (error) {
+            iziToast.error({
+                title: 'Error',
+                message: `Oops! Something was wrog.... ${error.message}`,
+            });
             return thunkApi.rejectWithValue(error.message);
         }
     }
