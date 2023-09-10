@@ -25,7 +25,7 @@ const LoginPage = () => {
 
   return (
     <div className={css.wrapForm}>
-      <h1>Login</h1>
+      <h1 className={css.heading}>Login</h1>
       <form className={css.form} onSubmit={handleSubmit}>
         <label htmlFor={emailInputId} className={css.label}>
           Email

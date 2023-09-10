@@ -1,0 +1,16 @@
+.footerLine {
+  background: #4a346b;
+  min-height: 60px;
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  /* position: fixed; */
+  bottom: 0;
+}
+
+.footerText {
+  justify-content: center;
+}

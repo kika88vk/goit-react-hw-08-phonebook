@@ -1,10 +1,3 @@
-.container {
-  margin-left: auto;
-  margin-right: auto;
-  padding: 25px;
-  background-color: #dbdce8;
-}
-
 .heading {
   font-family: 'Roboto', sans-serif;
   font-size: 40px;
@@ -14,7 +7,7 @@
 .phonebook {
   margin-left: auto;
   margin-right: auto;
-  /* border: 1px solid purple; */
+
   max-width: 850px;
   display: flex;
   flex-direction: column;
@@ -25,5 +18,7 @@
   border-radius: 6px;
 }
 
-.filterContainer {
+.container {
+  padding-top: 30px;
+  padding-bottom: 30px;
 }

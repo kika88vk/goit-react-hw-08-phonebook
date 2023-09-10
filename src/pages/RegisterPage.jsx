@@ -28,7 +28,7 @@ const RegisterPage = () => {
 
   return (
     <div className={css.wrapForm}>
-      <h1>Registration</h1>
+      <h1 className={css.heading}>Registration</h1>
       <form className={css.form} onSubmit={handleSubmit}>
         <label htmlFor={nameInputId} className={css.label}>
           Name
